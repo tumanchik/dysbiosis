@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дисбиоз: структурная лекция</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --accent1: #2d6a4f;
+    --accent2: #b5838d;
+    --accent3: #e07a5f;
+    --accent4: #3d405b;
+    --accent5: #81b29a;
+    --text: #2b2b2b;
+    --muted: #7a7a7a;
+    --border: #e0dbd2;
+    --yellow: #f4d35e;
+    --blue: #457b9d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--accent4);
+    color: white;
+    padding: 40px 20px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+    top: -60px; right: -60px;
+  }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    max-width: 400px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--accent1);
+    color: white;
+    padding: 16px 20px;
+  }
+  .toc-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; font-weight: 600; }
+  .toc a {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .toc a:last-child { border-bottom: none; }
+  .toc a::before { content: '→ '; color: var(--yellow); }
+
+  section { padding: 24px 16px; }
+  section + section { border-top: 1px solid var(--border); }
+
+  .sec-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--accent4);
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent1);
+    margin: 18px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h3 .ico { font-size: 18px; }
+  p { margin-bottom: 10px; color: var(--text); }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    font-size: 14px;
+    color: var(--text);
+  }
+  .card strong { display: block; margin-bottom: 6px; }
+  .card-accent { border-left: 4px solid var(--accent1); }
+  .card-warn { background: #fff9f0; border-left: 4px solid var(--accent3); }
+  .card-info { background: #f0f7ff; border-left: 4px solid var(--blue); }
+  .card-science { background: #f0faf5; border-left: 4px solid var(--accent5); }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .badge-green { background: #d4edda; color: #155724; }
+  .badge-red { background: #fde8e8; color: #a00; }
+  .badge-blue { background: #d0e8f7; color: #004a7c; }
+  .badge-orange { background: #fde9d0; color: #7a3a00; }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 14px 0;
+  }
+  .flow-item {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 32px;
+  }
+  .flow-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: white;
+  }
+  .flow-line {
+    width: 2px;
+    background: var(--border);
+    flex: 1;
+    margin: 2px auto;
+    min-height: 20px;
+  }
+  .flow-content {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    flex: 1;
+  }
+  .flow-content strong { display: block; font-size: 13px; color: var(--accent4); }
+  .flow-content span { font-size: 12px; color: var(--muted); }
+
+  /* TABLE */
+  .tbl-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    -webkit-overflow-scrolling: touch;
+  }
+  .tbl-hint {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 380px; }
+  thead { background: var(--accent4); color: white; }
+  thead th { padding: 10px 10px; text-align: left; font-weight: 600; font-size: 12px; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #f9f8f6; }
+  tbody tr:nth-child(odd) { background: white; }
+  tbody td { padding: 9px 10px; vertical-align: top; border-bottom: 1px solid var(--border); line-height: 1.5; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody td:first-child { font-weight: 600; color: var(--accent4); white-space: nowrap; }
+  .tbl-wrap::-webkit-scrollbar { height: 4px; }
+  .tbl-wrap::-webkit-scrollbar-track { background: #f0ece5; }
+  .tbl-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* PATTERN GRID */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .pattern-card {
+    border-radius: 10px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .pattern-card .ico { font-size: 24px; margin-bottom: 6px; display: block; }
+  .pattern-card strong { display: block; font-size: 12px; font-weight: 700; }
+  .pattern-card span { font-size: 11px; color: var(--muted); }
+  .p1 { background: #e8f4f0; border: 1px solid var(--accent5); }
+  .p2 { background: #fde8e8; border: 1px solid #e88; }
+  .p3 { background: #fdf0e8; border: 1px solid #e4a; }
+
+  /* CAUSE-EFFECT */
+  .ce-block {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .ce-head {
+    color: white;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .ce-body { padding: 12px 14px; }
+  .ce-arrow {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .ce-arrow .arr { color: var(--accent3); font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+
+  /* ANALYSIS */
+  .analysis-grid {
+    display: grid;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .analysis-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .analysis-header {
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+  }
+  .analysis-body {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .analysis-body ul { list-style: none; }
+  .analysis-body li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 6px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .analysis-body li:last-child { border: none; }
+  .analysis-body li::before { content: '✓'; color: var(--accent1); font-weight: 700; flex-shrink: 0; }
+
+  .sci-ref {
+    display: block;
+    font-size: 11px;
+    color: var(--blue);
+    font-style: italic;
+    padding: 3px 0;
+    margin-top: 6px;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--accent4), var(--blue));
+    color: white;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 14px 0;
+  }
+  .highlight-box h3 { color: var(--yellow); margin: 0 0 8px; font-size: 15px; }
+  .highlight-box p { color: rgba(255,255,255,0.9); margin: 0; font-size: 13px; }
+
+  /* NUMBER FACTS */
+  .number-fact {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .number-fact:last-child { border: none; }
+  .nf-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent3);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 50px;
+  }
+  .nf-text { font-size: 12.5px; color: var(--text); }
+  .nf-text strong { display: block; font-size: 13px; margin-bottom: 2px; }
+
+  /* LOCATION */
+  .loc-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .loc-item:last-child { border: none; }
+  .loc-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .loc-text { flex: 1; }
+  .loc-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
+  .loc-text .ph { font-size: 11px; color: var(--blue); font-weight: 600; display: block; margin: 2px 0; }
+  .loc-text span { font-size: 12px; color: var(--muted); }
+
+  /* TAG ROW */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--accent4);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  footer strong { color: white; }
+
+  @media (max-width: 400px) {
+    .pattern-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 23px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Структурная лекция · Микробиом</div>
+  <h1>Дисбиоз:<br>причины, виды и диагностика</h1>
+  <p>Научно обоснованный разбор — от механизмов до анализов</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">Содержание</div>
+  <a href="#s1">1. Что такое дисбиоз и почему он возникает</a>
+  <a href="#s2">2. Три базовых паттерна дисбиоза</a>
+  <a href="#s3">3. Карта локализаций: где живёт проблема</a>
+  <a href="#s4">4. Фенотипы дисбиоза: 6 видов</a>
+  <a href="#s5">5. Причинно-следственные связи (научные данные)</a>
+  <a href="#s6">6. Ось «кишечник — мозг»</a>
+  <a href="#s7">7. Какие анализы сдавать и зачем</a>
+  <a href="#s8">8. Ключевые выводы</a>
+</div>
+
+<!-- S1 -->
+<section id="s1">
+  <div class="sec-label">Раздел 01</div>
+  <h2>Что такое дисбиоз и почему он возникает</h2>
+
+  <p>Дисбиоз — это не болезнь, а <strong>состояние нарушенного баланса микробного сообщества</strong>, при котором меняется состав, разнообразие или метаболическая активность микробиоты.</p>
+
+  <div class="card card-info">
+    <strong>🔬 Научный факт</strong>
+    В теле человека ~38 триллионов микробных клеток — это сравнимо с количеством собственных клеток организма. В кишечнике сосредоточено &gt;99% всей микробиоты тела. Микробиом кодирует в 150 раз больше уникальных генов, чем геном человека.
+    <span class="sci-ref">Sender R. et al., Cell, 2016; Qin J. et al., Nature, 2010</span>
+  </div>
+
+  <h3><span class="ico">⚠️</span> Нет «эталона здорового микробиома»</h3>
+  <p>Один и тот же симптом может соответствовать абсолютно разным микробным профилям. Именно поэтому геномный анализ микробиома <strong>ограниченно применим</strong> для клинических решений без учёта клинического контекста.</p>
+
+  <div class="card card-warn">
+    <strong>❗ Важно понять</strong>
+    Дисбиоз — это симптом, а не причина сама по себе. Чтобы лечить эффективно, нужно ответить на 3 вопроса:<br><br>
+    <b>Где?</b> — локализация проблемы<br>
+    <b>Кто?</b> — какие микроорганизмы доминируют<br>
+    <b>Почему?</b> — что закрепило нарушение
+  </div>
+</section>
+
+<!-- S2 -->
+<section id="s2">
+  <div class="sec-label">Раздел 02</div>
+  <h2>Три базовых паттерна дисбиоза</h2>
+  <p>Любой дисбиоз — это комбинация трёх взаимосвязанных нарушений:</p>
+
+  <div class="pattern-grid">
+    <div class="pattern-card p1">
+      <span class="ico">🟢</span>
+      <strong>Потеря полезных бактерий</strong>
+      <span>↓ SCFA-продуценты, ↓ защитные виды</span>
+    </div>
+    <div class="pattern-card p2">
+      <span class="ico">🔴</span>
+      <strong>Рост патобионтов</strong>
+      <span>↑ условно-патогенная флора</span>
+    </div>
+    <div class="pattern-card p3">
+      <span class="ico">🟠</span>
+      <strong>Снижение разнообразия</strong>
+      <span>меньше видов = меньше устойчивость</span>
+    </div>
+  </div>
+
+  <div class="card card-science">
+    <strong>📚 Что говорит наука о разнообразии</strong>
+    Снижение альфа-разнообразия (количества видов у одного человека) ассоциировано с ожирением, СРК, болезнью Крона, депрессией и диабетом 2-го типа. Высокое разнообразие — маркер устойчивости микробиома к внешним воздействиям.
+    <span class="sci-ref">Lozupone C. et al., Nature, 2012; Turnbaugh P. et al., Nature, 2006</span>
+  </div>
+
+  <h3><span class="ico">🔗</span> Как эти три паттерна связаны?</h3>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-left">
+        <div class="flow-dot" style="background:#2d6a4f">1</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <strong>Потеря полезных бактерий (Lactobacillus, Bifidobacterium, Faecalibacterium prausnitzii)</strong>
+        <span>↓ SCFA (бутират, пропионат) → ↓ питание колоноцитов и иммунных клеток</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left">
+        <div class="flow-dot" style="background:#b5838d">2</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <strong>Освободившаяся ниша заполняется патобионтами</strong>
+        <span>E. coli, Klebsiella, Candida → ↑ воспаление, ↑ проницаемость слизистой</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left">
+        <div class="flow-dot" style="background:#e07a5f">3</div>
+        <div class="flow-line"></div>
+      </div>
+      <div class="flow-content">
+        <strong>Разнообразие падает</strong>
+        <span>Монодоминантное сообщество → хрупкий микробиом, не способный восстановиться самостоятельно</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left">
+        <div class="flow-dot" style="background:#3d405b">4</div>
+      </div>
+      <div class="flow-content">
+        <strong>Хронизация воспаления</strong>
+        <span>↑ кишечная проницаемость → системная эндотоксинемия → поражение органов-мишеней</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 -->
+<section id="s3">
+  <div class="sec-label">Раздел 03</div>
+  <h2>Карта локализаций</h2>
+  <p>Дисбиоз может возникать в <strong>разных отделах ЖКТ и других органах</strong> — и каждый имеет свои патогены и pH-среду:</p>
+
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#fde8d0">🫁</div>
+    <div class="loc-text">
+      <strong>Ротоглотка</strong>
+      <span class="ph">pH 6.5–7.5</span>
+      <span>Пародонтит, кандидоз полости рта, ГЭРБ-ассоциированный рефлюкс</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#ffe4b0">🟡</div>
+    <div class="loc-text">
+      <strong>Желудок</strong>
+      <span class="ph">pH 1.5–3.5</span>
+      <span>H. pylori, гипоацидность, грибковая колонизация при ↑HCl</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#d4edda">🟢</div>
+    <div class="loc-text">
+      <strong>Тонкая кишка</strong>
+      <span class="ph">pH 6.0–7.4</span>
+      <span>СИБР (бактериальный), СИГР (грибковый), ИМО (археи), паразитозы (лямблии)</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#c8a47a">🟤</div>
+    <div class="loc-text">
+      <strong>Толстая кишка</strong>
+      <span class="ph">pH 5.5–7.0</span>
+      <span>Дисбиоз толстой кишки, C. difficile, кандидоз, протозойные инфекции, дефицит бутират-продуцентов</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#d4edda">💚</div>
+    <div class="loc-text">
+      <strong>Билиарная система</strong>
+      <span class="ph">(желчный пузырь + протоки)</span>
+      <span>Бактериальная контаминация желчи, деконъюгация желчных кислот, холестаз + дисбиоз</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#fde0e0">🔴</div>
+    <div class="loc-text">
+      <strong>Влагалище</strong>
+      <span class="ph">pH 3.8–4.5</span>
+      <span>Бактериальный вагиноз (↓Lactobacillus), кандидозный вульвовагинит, аэробный вагинит, микст</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#d0e8f7">🔵</div>
+    <div class="loc-text">
+      <strong>Мочевыводящие пути</strong>
+      <span class="ph">—</span>
+      <span>Уропатогенная флора, рецидивирующие ИМП</span>
+    </div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-dot" style="background:#e8d5f5">🟣</div>
+    <div class="loc-text">
+      <strong>Кожа</strong>
+      <span class="ph">pH 4.5–5.5</span>
+      <span>Malassezia, стафилококк, дисбиоз при атопии/акне</span>
+    </div>
+  </div>
+</section>
+
+<!-- S4 -->
+<section id="s4">
+  <div class="sec-label">Раздел 04</div>
+  <h2>Фенотипы дисбиоза: 6 видов</h2>
+  <p>Один и тот же «дисбиоз» может иметь разный механизм — это определяет <strong>совершенно разную тактику лечения</strong>:</p>
+
+  <div class="tbl-hint">⟵ листайте вправо если нужно</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Фенотип</th>
+          <th>Механизм</th>
+          <th>Симптомы</th>
+          <th>Связан с</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Дефицитный</td>
+          <td>↓ полезных бактерий, ↓ SCFA-продуцентов</td>
+          <td>Нестабильный стул, пищевая непереносимость</td>
+          <td>СРК, постинфекционные состояния</td>
+        </tr>
+        <tr>
+          <td>Ферментативный</td>
+          <td>Избыточная ферментация углеводов</td>
+          <td>Вздутие, газообразование, диарея</td>
+          <td>СИБР, ферментопатии</td>
+        </tr>
+        <tr>
+          <td>Протеолитический (гнилостный)</td>
+          <td>↑ метаболизм белков → аммиак, фенолы, индолы</td>
+          <td>Метеоризм, неприятный запах стула</td>
+          <td>Хронические ВЗК</td>
+        </tr>
+        <tr>
+          <td>СИГР</td>
+          <td>Нарушение баланса грибов и бактерий</td>
+          <td>Вздутие, пищевые реакции, воспалительный фон</td>
+          <td>Кандидоз, ВЗК</td>
+        </tr>
+        <tr>
+          <td>СИБР</td>
+          <td>Избыточный рост бактерий в тонкой кишке</td>
+          <td>Выраженное вздутие, боль, диарея или запор</td>
+          <td>СРК</td>
+        </tr>
+        <tr>
+          <td>ИМО (метаногенный)</td>
+          <td>↑ продукция метана археями (Methanobrevibacter spp.) → ↓ моторика</td>
+          <td>Запор, вздутие, тяжесть</td>
+          <td>СРК-С</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-science">
+    <strong>📚 Научный факт о метане</strong>
+    Метан, продуцируемый Methanobrevibacter smithii, замедляет моторику кишечника примерно на 59%. Это объясняет, почему пациенты с ИМО часто не отвечают на стандартное лечение СРК с запором.
+    <span class="sci-ref">Pimentel M. et al., Dig Dis Sci, 2006; Am J Gastroenterol, 2012</span>
+  </div>
+</section>
+
+<!-- S5 -->
+<section id="s5">
+  <div class="sec-label">Раздел 05</div>
+  <h2>Причинно-следственные связи (наука)</h2>
+
+  <div class="ce-block">
+    <div class="ce-head" style="background:#2d6a4f">🏃 Нарушение моторики → СИБР / ИМО</div>
+    <div class="ce-body">
+      <div class="ce-arrow"><span class="arr">→</span><span>Замедленный транзит = бактерии не вымываются из тонкой кишки</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>↑ колонизация → ферментация в неправильном месте → вздутие, боль</span></div>
+      <span class="sci-ref">Ghoshal UC et al., J Neurogastroenterol Motil, 2017</span>
+    </div>
+  </div>
+
+  <div class="ce-block">
+    <div class="ce-head" style="background:#457b9d">💊 Антибиотики → дефицитный дисбиоз + СИГР</div>
+    <div class="ce-body">
+      <div class="ce-arrow"><span class="arr">→</span><span>1 курс антибиотиков уничтожает 30–50% видов микробиоты</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Восстановление занимает 1–2 года (у некоторых — неполное)</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Грибы (Candida) заполняют освободившуюся нишу → СИГР</span></div>
+      <span class="sci-ref">Dethlefsen L., Relman DA, PNAS, 2011; Palleja A. et al., Nat Microbiol, 2018</span>
+    </div>
+  </div>
+
+  <div class="ce-block">
+    <div class="ce-head" style="background:#b5838d">🔥 ↑ Кишечная проницаемость → системное воспаление</div>
+    <div class="ce-body">
+      <div class="ce-arrow"><span class="arr">→</span><span>Патобионты → ↑ LPS (липополисахариды) → проникают в кровоток</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Активируют TLR-4 рецепторы → хроническое тихое воспаление</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Поражение печени, мозга, метаболические нарушения</span></div>
+      <span class="sci-ref">Cani PD et al., Diabetes, 2008; Bischoff SC et al., BMC Gastroenterol, 2014</span>
+    </div>
+  </div>
+
+  <div class="ce-block">
+    <div class="ce-head" style="background:#e07a5f">🧪 Снижение кислотности желудка → СИБР + СИГР</div>
+    <div class="ce-body">
+      <div class="ce-arrow"><span class="arr">→</span><span>HCl — первый антибактериальный барьер. При гипоацидности он исчезает</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>ИПП (омепразол и аналоги) ↑ риск СИБР в 1.7–3 раза</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Грибковая колонизация желудка при pH &gt; 4.0</span></div>
+      <span class="sci-ref">Lo WK, Chan WW, Clin Gastroenterol Hepatol, 2013; Ratuapli SK et al., 2012</span>
+    </div>
+  </div>
+
+  <div class="ce-block">
+    <div class="ce-head" style="background:#3d405b">🦠 Паразиты → смешанный дисбиоз</div>
+    <div class="ce-body">
+      <div class="ce-arrow"><span class="arr">→</span><span>Лямблии (Giardia lamblia) → повреждают ворсинки тонкой кишки</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>↓ ферментативная активность → ферментативный дисбиоз</span></div>
+      <div class="ce-arrow"><span class="arr">→</span><span>Хроническое воспаление → изменение иммунного ответа → вторичный дисбиоз</span></div>
+      <span class="sci-ref">Halliez MC, Buret AG, Trends Parasitol, 2013</span>
+    </div>
+  </div>
+
+  <h3><span class="ico">📊</span> Факторы и фенотипы: сводная таблица</h3>
+  <div class="tbl-hint">⟵ листайте вправо если нужно</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Фактор</th><th>Механизм</th><th>Фенотип</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Нарушение моторики</td><td>↑ колонизация тонкой кишки</td><td>СИБР, ИМО</td></tr>
+        <tr><td>↓ кислотности желудка</td><td>↓ антибактериальный барьер</td><td>СИБР, СИГР</td></tr>
+        <tr><td>Нарушение желчеотока</td><td>Деконъюгация желчных кислот</td><td>Ферментативный, СИБР</td></tr>
+        <tr><td>Ферментная недостаточность</td><td>Нутриенты → субстрат для ферментации</td><td>Ферментативный, СИБР</td></tr>
+        <tr><td>Антибиотики</td><td>↓ комменсалы, ↓ колонизационная резистентность</td><td>Дефицитный, СИГР</td></tr>
+        <tr><td>Стресс</td><td>↓ моторика, ↓ секреция, ↓ иммунный ответ</td><td>Дисбиоз при СРК</td></tr>
+        <tr><td>Острые инфекции</td><td>Воспаление + изменение состава микробиоты</td><td>Постинфекционный</td></tr>
+        <tr><td>Паразиты</td><td>Повреждение слизистой + иммунный сдвиг</td><td>Смешанный</td></tr>
+        <tr><td>↑ сахар + ультраобработка</td><td>Субстрат для патобионтов и грибов</td><td>Ферментативный, СИГР</td></tr>
+        <tr><td>Хроническое воспаление</td><td>Иммунный дисбаланс + дисбиоз</td><td>Протеолитический</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- S6 -->
+<section id="s6">
+  <div class="sec-label">Раздел 06</div>
+  <h2>Ось «кишечник — мозг»</h2>
+
+  <div class="card card-info">
+    <strong>🧠 Двунаправленная коммуникация</strong>
+    Кишечник и мозг связаны через блуждающий нерв, иммунную систему, гормоны и короткоцепочечные жирные кислоты. 90% серотонина организма синтезируется в кишечнике.
+    <span class="sci-ref">Mayer EA et al., Nature Reviews Neuroscience, 2015</span>
+  </div>
+
+  <h3><span class="ico">🔗</span> Что нарушает ось «кишечник–мозг»?</h3>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#2d6a4f">1</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Инфекции и дисбиоз</strong><span>LPS патобионтов → нейровоспаление через кровоток</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#457b9d">2</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Вирусная нагрузка</strong><span>Прямое и косвенное воздействие на блуждающий нерв</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#b5838d">3</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Стресс</strong><span>Кортизол → ↑ проницаемость кишечника → ↑ LPS в крови → нейровоспаление</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#e07a5f">4</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Повреждение блуждающего нерва</strong><span>↓ моторика, ↓ секреция → вторичный дисбиоз</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#3d405b">5</div></div>
+      <div class="flow-content"><strong>Сосудистая дисфункция</strong><span>↓ кровоснабжение слизистой → ↑ проницаемость → дисбиоз</span></div>
+    </div>
+  </div>
+
+  <div class="card card-science">
+    <strong>📚 LPS и нейровоспаление</strong>
+    Липополисахарид (LPS) — компонент оболочки грамотрицательных бактерий. При повышенной кишечной проницаемости LPS попадает в кровь → активирует микроглию мозга → хроническое нейровоспаление → депрессия, тревожность, когнитивные нарушения.
+    <span class="sci-ref">Maes M. et al., Neuroendocrinology Letters, 2012; Kelly JR et al., Brain Behav Immun, 2015</span>
+  </div>
+
+  <div class="number-fact">
+    <div class="nf-num">34%</div>
+    <div class="nf-text"><strong>пациентов с СРК</strong> имеют симптомы депрессии или тревоги, а у пациентов с депрессией достоверно снижено разнообразие микробиоты</div>
+  </div>
+  <div class="number-fact">
+    <div class="nf-num">80%</div>
+    <div class="nf-text"><strong>передача сигналов</strong> по блуждающему нерву идёт снизу вверх: от кишечника к мозгу, а не наоборот</div>
+  </div>
+  <div class="number-fact">
+    <div class="nf-num">90%</div>
+    <div class="nf-text"><strong>серотонина</strong> синтезируется в кишечнике энтерохромаффинными клетками под влиянием микробиоты</div>
+  </div>
+</section>
+
+<!-- S7 -->
+<section id="s7">
+  <div class="sec-label">Раздел 07</div>
+  <h2>Какие анализы сдавать и зачем</h2>
+  <p>Диагностика дисбиоза — это не один анализ, а <strong>диагностическая стратегия</strong>, построенная на ответах: <em>Где? Кто? Почему?</em></p>
+
+  <div class="analysis-grid">
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#2d6a4f">🫁 Уровень 1: Тонкая кишка (СИБР/ИМО/СИГР)</div>
+      <div class="analysis-body">
+        <ul>
+          <li>Водородно-метановый дыхательный тест (ВМДТ / ВДТ) — золотой стандарт для СИБР и ИМО. С лактулозой или глюкозой. Оценивает H₂ и CH₄</li>
+          <li>ПЦР кала на грибы (Candida spp.) — при подозрении на СИГР</li>
+          <li>Копрограмма — косвенные признаки мальдигестии</li>
+          <li>Кишечная микробиота (ПЦР или посев) — при наличии показаний</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#457b9d">🟡 Уровень 2: Желудок и выше</div>
+      <div class="analysis-body">
+        <ul>
+          <li>13C-уреазный дыхательный тест — диагностика H. pylori (золотой стандарт)</li>
+          <li>ФГДС с биопсией + Helicobacter (гистология, посев)</li>
+          <li>pH-метрия желудка — при гипо/гиперацидности</li>
+          <li>Гастрин-17, пепсиноген I/II — функция желудка</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#b5838d">🟤 Уровень 3: Толстая кишка</div>
+      <div class="analysis-body">
+        <ul>
+          <li>ПЦР кала (мультиплексные панели): C. difficile, паразиты, патогены</li>
+          <li>Анализ кала на паразитов (ПЦР — лямблии, криптоспоридии, амёбы)</li>
+          <li>Кальпротектин фекальный — маркер воспаления в кишечнике</li>
+          <li>Лактоферрин кала — воспаление слизистой</li>
+          <li>Секреторный IgA — местный иммунитет кишечника</li>
+          <li>ГХМ-МСС (метаболомика кала) — когда другие методы исчерпаны</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#3d405b">🧪 Уровень 4: Функция и воспаление (системный)</div>
+      <div class="analysis-body">
+        <ul>
+          <li>SCFA в кале (бутират, пропионат, ацетат) — оценка метаболической активности</li>
+          <li>Зонулин в крови/кале — маркер кишечной проницаемости</li>
+          <li>ЛПС-связывающий белок (LBP) — маркер эндотоксинемии</li>
+          <li>Эластаза панкреатическая-1 — функция поджелудочной железы</li>
+          <li>Желчные кислоты в кале — функция желчеотока и деконъюгации</li>
+          <li>CRP высокочувствительный — фоновое воспаление</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#e07a5f">💚 Уровень 5: Билиарная и смежные системы</div>
+      <div class="analysis-body">
+        <ul>
+          <li>УЗИ органов брюшной полости — холестаз, желчнокаменная болезнь</li>
+          <li>Печёночные пробы (АЛТ, АСТ, ГГТ, ЩФ, билирубин)</li>
+          <li>Желчные кислоты в крови — нарушение энтерогепатической циркуляции</li>
+          <li>Посев желчи (при холангите) — бактериальная контаминация</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header" style="background:#81b29a">🔬 Секвенирование (когда и зачем)</div>
+      <div class="analysis-body">
+        <ul>
+          <li>16S рРНК-секвенирование — состав микробных видов (исследовательский, не клинический стандарт)</li>
+          <li>Метагеномное секвенирование (WGS) — полный генетический профиль микробиома, функциональный потенциал</li>
+          <li>Применяется при: рефрактерных состояниях, после трансплантации, при ВЗК</li>
+          <li>Ограничение: нет единого норматива → интерпретация затруднена</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card card-warn">
+    <strong>❗ Когда НЕ стоит назначать анализы</strong><br><br>
+    • Без клинического контекста — результат невозможно интерпретировать<br>
+    • Геномный анализ микробиома как скрининг — не рекомендован (AGA, 2020)<br>
+    • Дисбактериоз кала (советский метод) — устаревший стандарт, не отражает реальный состав микробиоты
+    <span class="sci-ref">AGA Clinical Practice Guidelines, Gastroenterology, 2020</span>
+  </div>
+
+  <h3><span class="ico">🗺️</span> Алгоритм: с чего начать?</h3>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#2d6a4f">1</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Ответить: ГДЕ болит?</strong><span>Верхний / нижний ЖКТ, влагалище, кожа → выбрать уровень диагностики</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#457b9d">2</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Ответить: КТО доминирует?</strong><span>Бактерии / грибы / археи / паразиты → ПЦР-панели, посевы, дыхательный тест</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#b5838d">3</div><div class="flow-line"></div></div>
+      <div class="flow-content"><strong>Ответить: ПОЧЕМУ закрепилось?</strong><span>Оценить моторику, кислотность, ферменты, желчь, питание, иммунитет</span></div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-left"><div class="flow-dot" style="background:#e07a5f">4</div></div>
+      <div class="flow-content"><strong>Оценить системное воспаление</strong><span>Зонулин, LBP, кальпротектин, CRP вч — масштаб повреждения</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- S8 -->
+<section id="s8">
+  <div class="sec-label">Раздел 08</div>
+  <h2>Ключевые выводы</h2>
+
+  <div class="highlight-box">
+    <h3>🎯 Главная логика</h3>
+    <p>Дисбиоз — это не диагноз, а следствие. Лечить надо не «плохую микробиоту», а устранять причину: нарушение моторики, кислотности, ферментов, иммунитета или питания.</p>
+  </div>
+
+  <div class="card card-accent">
+    <strong>✅ Что важно понять:</strong><br><br>
+    1. <b>Три паттерна всегда взаимосвязаны</b> — потеря, рост патобионтов и снижение разнообразия идут вместе<br><br>
+    2. <b>Локализация решает всё</b> — СИБР в тонкой кишке и дисбиоз толстой лечатся по-разному<br><br>
+    3. <b>Фенотип определяет тактику</b> — ферментативный и протеолитический дисбиоз требуют разного питания<br><br>
+    4. <b>Причина важнее симптома</b> — нарушение желчеотока или ИПП могут быть источником всего остального<br><br>
+    5. <b>Мозг и кишечник неразделимы</b> — хронический дисбиоз → нейровоспаление → психические симптомы
+  </div>
+
+  <div class="card card-science">
+    <strong>📚 Три самые важные ссылки</strong><br><br>
+    • Sonnenburg JL, Bäckhed F. <em>Diet–microbiota interactions as moderators of human metabolism.</em> Nature, 2016<br><br>
+    • Cani PD et al. <em>Metabolic endotoxemia initiates obesity and insulin resistance.</em> Diabetes, 2008<br><br>
+    • Pimentel M. et al. <em>A link between irritable bowel syndrome and fibromyalgia may be related to findings on lactulose breath testing.</em> Ann Rheum Dis, 2004
+  </div>
+
+  <div class="tag-row">
+    <span class="badge badge-green">СИБР</span>
+    <span class="badge badge-red">СИГР</span>
+    <span class="badge badge-blue">ИМО</span>
+    <span class="badge badge-orange">Дефицитный</span>
+    <span class="badge badge-green">Ферментативный</span>
+    <span class="badge badge-red">Протеолитический</span>
+  </div>
+</section>
+
+<footer>
+  <strong>Структурная лекция · Дисбиоз</strong><br>
+  Составлено на основе современных научных данных (2006–2024)<br>
+  Не является медицинской рекомендацией
+</footer>
+
+</body>
+</html>
